@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+numpy
+sentence-transformers
+faiss-cpu
+google-generativeai
+python-dotenv # For loading API key from .env file
