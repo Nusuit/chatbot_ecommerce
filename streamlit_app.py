@@ -32,21 +32,21 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
 
 # Display chat messages from history on app rerun
-for message in st.session_state.messages:
+for message in st.session_state.messages: # <-- Bỏ comment dòng này
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-        if message["role"] == "assistant_products" and isinstance(message["content"], list):
-            # Tái tạo phần hiển thị sản phẩm tham khảo nếu muốn
-            st.markdown("---")
-            st.markdown("**Các sản phẩm được tham khảo để trả lời (thông tin nội bộ):**")
-            for i, product in enumerate(message["content"]):
-                st.markdown(f"**{i+1}. {product.get('product_name', 'N/A')}**")
-                st.markdown(f"   * ID: {product.get('product_id', 'N/A')}")
-                st.markdown(f"   * Tác giả/Thương hiệu: {product.get('author_brand_name', 'Không rõ')}")
-                st.markdown(f"   * Giá: {product.get('price', 0):,} đồng")
-                st.markdown(f"   * Số lượng đã bán: {product.get('quantity_sold', 0)}")
-                st.markdown(f"   * [Link sản phẩm]({product.get('product_url_path', '#')})")
-                st.markdown("")
+        # if message["role"] == "assistant_products" and isinstance(message["content"], list): # <-- Comment hoặc xóa toàn bộ khối if này
+        #     # Tái tạo phần hiển thị sản phẩm tham khảo nếu muốn
+        #     st.markdown("---")
+        #     st.markdown("**Các sản phẩm được tham khảo để trả lời (thông tin nội bộ):**")
+        #     for i, product in enumerate(message["content"]):
+        #         st.markdown(f"**{i+1}. {product.get('product_name', 'N/A')}**")
+        #         st.markdown(f"    * ID: {product.get('product_id', 'N/A')}")
+        #         st.markdown(f"    * Tác giả/Thương hiệu: {product.get('author_brand_name', 'Không rõ')}")
+        #         st.markdown(f"    * Giá: {product.get('price', 0):,} đồng")
+        #         st.markdown(f"    * Số lượng đã bán: {product.get('quantity_sold', 0)}")
+        #         st.markdown(f"    * [Link sản phẩm]({product.get('product_url_path', '#')})")
+        #         st.markdown("")
 
 
 # React to user input
@@ -76,9 +76,9 @@ if prompt := st.chat_input("Bạn muốn tìm sách gì?"):
         # Add assistant response to chat history
         st.session_state.messages.append({"role": "assistant", "content": chatbot_response})
         # LƯU Ý: Nếu bạn muốn lưu thông tin sản phẩm đã tham khảo vào lịch sử chat
-        # để hiển thị lại khi refresh trang, bạn cần thêm dòng này:
-        if retrieved_products:
-            st.session_state.messages.append({"role": "assistant_products", "content": retrieved_products})
+        # để hiển thị lại khi refresh trang, bạn cần comment dòng này để không lưu thông tin nội bộ
+        # if retrieved_products: # <-- Comment hoặc xóa toàn bộ khối if này
+        #     st.session_state.messages.append({"role": "assistant_products", "content": retrieved_products})
 
 
     except Exception as e:
