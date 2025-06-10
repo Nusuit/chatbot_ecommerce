@@ -6,3 +6,5 @@ sentence-transformers
 faiss-cpu
 google-generativeai
 python-dotenv # For loading API key from .env file
+streamlit>=1.32.0
+plotly>=5.18.0
