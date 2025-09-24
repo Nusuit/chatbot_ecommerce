@@ -1,5 +1,5 @@
 import streamlit as st
-from utils import rag_pipeline, load_models_and_data
+from utils_local import rag_pipeline_local as rag_pipeline, load_rag_components_for_local_demo as load_models_and_data
 import time
 
 # Set page config MUST BE THE FIRST STREAMLIT COMMAND

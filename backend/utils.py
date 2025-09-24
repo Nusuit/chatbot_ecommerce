@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 import json
 
 # Configuration
-LOCAL_DATA_PATH = './data'
+LOCAL_DATA_PATH = '../data'
 PROCESSED_FILE_PATH = os.path.join(LOCAL_DATA_PATH, 'tiki_books_processed_for_rag.csv')
 FAISS_INDEX_FILE_PATH = os.path.join(LOCAL_DATA_PATH, 'tiki_books_faiss.index')
 EMBEDDING_MODEL_NAME = 'VoVanPhuc/sup-SimCSE-VietNamese-phobert-base'

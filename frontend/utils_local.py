@@ -8,8 +8,8 @@ import os
 import time
 
 # --- Configuration (cập nhật đường dẫn cho môi trường local) ---
-# Đảm bảo thư mục 'data' nằm cùng cấp với file streamlit_app.py
-LOCAL_DATA_PATH = './data'
+# Đảm bảo thư mục 'data' nằm cùng cấp với root project directory
+LOCAL_DATA_PATH = '../data'
 PROCESSED_FILE_PATH = os.path.join(LOCAL_DATA_PATH, 'tiki_books_processed_for_rag.csv')
 FAISS_INDEX_FILE_PATH = os.path.join(LOCAL_DATA_PATH, 'tiki_books_faiss.index')
 EMBEDDING_MODEL_NAME = 'VoVanPhuc/sup-SimCSE-VietNamese-phobert-base'
